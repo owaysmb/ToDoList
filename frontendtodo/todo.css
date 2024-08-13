@@ -1,0 +1,22 @@
+
+#todolist{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    height: 200px;
+}
+#add , #delete{
+    padding: 10px;
+    background-color: black;
+    color: #03ff03;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 20px;
+}
+#input{
+    width: 500px;
+    border-radius: 10px;
+    height: 35px;
+}

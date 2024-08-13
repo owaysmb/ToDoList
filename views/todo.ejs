@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      #todolist {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+        height: 200px;
+      }
+      #add,
+      #delete {
+        padding: 10px;
+        background-color: black;
+        color: #03ff03;
+        font-weight: bold;
+        border-radius: 10px;
+        cursor: pointer;
+        height: 20px;
+      }
+      #input {
+        width: 500px;
+        border-radius: 10px;
+        height: 35px;
+      }
+    </style>
+
+    <div id="todolist">
+      <input type="text" id="input" />
+      <div id="add">Add</div>
+      <div id="delete">Delete</div>
+    </div>
+    <script>
+      let addtask = document.getElementById("add");
+      let deletetask = document.getElementById("delete");
+      let inp = document.getElementById("input");
+      const url = "http://localhost:3000/";
+
+      addtask.addEventListener("click", addinfo);
+      async function addinfo(e) {
+        e.preventDefault();
+        const res = await fetch(url, {
+          method: "POST",
+          mode: "no-cors", // Change 'non-cors' to 'no-cors' or another valid value
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+           name:"Oways"
+          }),
+        })
+
+        console.log(res);
+        const data = await res.json();
+        inp.value = data.info;
+      }
+    </script>
+  </body>
+</html>
